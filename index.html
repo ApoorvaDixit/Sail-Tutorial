@@ -37,22 +37,26 @@
     <div>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Give me pupper pic now</span>
-<!--
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
--->
                 </button>
         <script src="jquery.js"></script>
             <script>
                 $( "button" ).click(function( event ) {
-                    event.preventDefault();  //this works
-                    $( this ).hide( "slow" );
-                });
+                    
+                    var img = document.createElement("img");
+                    img.src = "http://pngimg.com/uploads/dog/dog_PNG23605.png";
+                    img.width = width;
+                    img.height = height;
+                    img.alt = alt;
 
+                    // This next line will just add it to the <body> tag
+                    document.body.appendChild(img);
+                    
+                    
+                    
+                });
             </script>
         
-        
+        <p> <span id="img"></span></p></body>
         
         
     </div>
