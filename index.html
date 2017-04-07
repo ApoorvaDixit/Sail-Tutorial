@@ -41,17 +41,50 @@
         <script src="jquery.js"></script>
             <script>
                 $( "button" ).click(function( event ) {
+                    var imgURLS = [
+                        "https://i.redd.it/bmyxvz4ifypy.jpg",
+                        "http://pngimg.com/uploads/dog/dog_PNG23605.png",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/17740946_1781480478834529_834240521_n.jpg?oh=2226e7889f3e7b1b23aa13030dcc12c5&oe=58EA0F88",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/17742462_10210930786918800_149501929_n.gif?oh=13da6551b436a50e6d732697ea7c983b&oe=58E8D7D2",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t35.0-12/17622348_1777745382541372_841703046_o.jpg?oh=7da5cb736b21f6cbcad2ed97a37272bd&oe=58E944FE",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t35.0-12/17622348_1777745382541372_841703046_o.jpg?oh=7da5cb736b21f6cbcad2ed97a37272bd&oe=58E944FE",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/17555152_1775761126073131_160573112_n.jpg?oh=d3fe112867b705fce0da2d25f3edaa9f&oe=58E9FCFC",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/16996918_1251209144954630_1936907638_n.gif?oh=040527f5ea04cc2836960f74b3d9047d&oe=58E933DF",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/16976561_1758969921085585_915337178_n.gif?oh=ef3e3cc7274da10031eb31ce9c6bfb63&oe=58EA0B40",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/16838137_1756886701293907_94974366_n.jpg?oh=289e11ab7583641f5c602fbd9c38ffc9&oe=58EA19CB",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t35.0-12/16805227_1245208492221362_1942017867_o.jpg?oh=ca03bc71c054201cb043e1021d895b7d&oe=58E94C56",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t35.0-12/16523881_1749060962076481_230379041_o.jpg?oh=fcf04864db547d866ae42dcbff1c729d&oe=58EA1AED",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/16295560_1742658069383437_1631711812_n.jpg?oh=9194b1dac749ad46e3631b85c5db564d&oe=58E92701",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/16237375_1740411669608077_2109144276_n.jpg?oh=ad9fcfd554d2b31c531474f8ebd0da96&oe=58E9FFEF",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t35.0-12/16130104_1216613008414244_1798005581_o.jpg?oh=c56368a7e3c88ca473e08053ba7d067f&oe=58EA0DF7",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t35.0-12/16144969_1216610968414448_1728711909_o.jpg?oh=963618248e06b4fc9403d0b34ddc29ff&oe=58EA1880",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/15782785_1728744920774752_119356923_n.jpg?oh=9fc59df698df3a19200c96d7672a7c99&oe=58EA102A",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/15556004_1719824805000097_1526379162_n.jpg?oh=64f4975a480da5da0228d8e376b4482e&oe=58EA023D",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t35.0-12/15302280_1711639525818625_214858366_o.jpg?oh=b1828f4510cf8f44f1c0740831960626&oe=58E92801",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/14569144_1679463615702883_1112719621_n.jpg?oh=d0a84fb604f7ca94a9134ab5ebd8786c&oe=58E90118",
+                        "https://scontent-ort2-1.xx.fbcdn.net/v/t34.0-12/12498886_1543249945990918_1631303069_n.jpg?oh=30bee720bd9ca8e15660da92c334f360&oe=58E8EF71",
+                        "http://i.imgur.com/X5nGIEe.jpg",
+                        "https://i.redd.it/x702hpgs3ypy.jpg",
+                        "http://i.imgur.com/Pc82n6V.jpg"
+                        
+                    ];
+                    
+                    var arrLen = imgURLS.length;
+                    var randURL = imgURLS[Math.floor(Math.random()*imgURLS.length)];
                     
                     var img = document.createElement("img");
-                    img.src = "http://pngimg.com/uploads/dog/dog_PNG23605.png";
-                    img.width = width;
-                    img.height = height;
-                    img.alt = alt;
-
+                    img.src = randURL;
+                    img.width = 500;
+                    img.height = 500;
+                    
                     // This next line will just add it to the <body> tag
-                    document.body.appendChild(img);
+                    //document.body.appendChild(img);
                     
-                    
+                    var xChildren = document.body.childNodes;
+                    if(xChildren.length>2)
+                        document.body.replaceChild(img, xChildren[1]);
+                    else
+                        document.body.appendChild(img);
                     
                 });
             </script>
@@ -64,12 +97,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
     <script></script>
-    <!-- This Javascript snippet will bind to the click event an animation that imitates smooth scrolling -->
-    <script></script>
-    <!-- Challenge 1: This Javascript snippet will change the color of a button when it is hovered over or clicked on. Do this for "cool-button -->
-    <!-- Hint: jQuery has hover and click functions, each of which take some functions as parameters -->
-    <!-- Hint: hover takes 2 functions as parameters, the first is supposed to handle when the mouse moves onto the button, and the second is supposed to handle when the mouse moves off of the button -->
-    <!-- Hint: Use $(this) -->
+
     <script></script>
 
     <script></script>
