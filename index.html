@@ -70,21 +70,18 @@
                     ];
                     
                     var arrLen = imgURLS.length;
-                    var randURL = imgURLS[Math.floor(Math.random()*imgURLS.length)];
+                    var randURL = imgURLS[Math.floor(Math.random()*arrLen)];
                     
                     var img = document.createElement("img");
                     img.src = randURL;
                     img.width = 500;
                     img.height = 500;
                     
-                    // This next line will just add it to the <body> tag
-                    //document.body.appendChild(img);
-                    
-                    var xChildren = document.body.childNodes;
-                    if(xChildren.length>2)
-                        document.body.replaceChild(img, xChildren[1]);
+                    var docChildren = document.body.childNodes;
+                    if(docChildren.length>2)
+                        document.body.replaceChild(img, docChildren[1]); //if there is a doggo there already, replace it
                     else
-                        document.body.appendChild(img);
+                        document.body.appendChild(img); //otherwise put a doggo up in here
                     
                 });
             </script>
