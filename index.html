@@ -39,68 +39,10 @@
             <script>
                 var sort =0;
                 $( "button" ).click(function( event ) {
-                    generatePic();
-
-                    
-                    
+                    generatePic();     
                 });
 
                 function generatePic(){
-                    var imgURLS = [
-                        "https://i.redd.it/bmyxvz4ifypy.jpg",
-                        "http://pngimg.com/uploads/dog/dog_PNG23605.png",
-                        "https://img.buzzfeed.com/buzzfeed-static/static/2017-04/6/15/enhanced/buzzfeed-prod-fastlane-03/enhanced-5626-1491507976-1.png?downsize=715:*&output-format=auto&output-quality=auto",
-                        "https://www.kccavaliers.com/data1/images/dsc_0110.jpg",
-                        "http://24.media.tumblr.com/9eb7052c7fe451e4ea847d5a2f97af0a/tumblr_n160beu4tc1s8mgkyo4_1280.jpg",
-                        "https://imgix.ranker.com/user_node_img/50023/1000440464/original/basket-of-dobermans-photo-u1?w=650&q=50&fm=jpg",
-                        "http://68.media.tumblr.com/d37062e1f4beda6afef420b29eeef854/tumblr_mxg8hqyTMD1rs203no1_500.jpg",
-                        "http://maxpixel.freegreatpicture.com/static/photo/1x/Cute-Yorkie-Pet-Autumn-Dog-Animal-Puppy-1283027.jpg",
-                        "https://s-media-cache-ak0.pinimg.com/564x/b6/f0/27/b6f027d5f504f7ba5b4262c2c53ec5f3.jpg",
-                        "http://i8.lisimg.com/5580268/740.jpg",
-                        "https://i.ytimg.com/vi/XbaKwcE9SSk/maxresdefault.jpg",
-                        "http://tailandfur.com/wp-content/uploads/2016/06/40-Cute-Siberian-Husky-Puppy-Pictures-Feature-Image.jpg",
-                        "https://s-media-cache-ak0.pinimg.com/736x/4f/c2/00/4fc200a17d716f989373490e3665f267.jpg",
-                        "http://buzzsharer.com/wp-content/uploads/2015/04/puppy-sleep-cute.jpg",
-                        "https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web04/2011/10/24/12/enhanced-buzz-32059-1319472148-34.jpg",
-
-                        "https://s-media-cache-ak0.pinimg.com/736x/f6/89/d9/f689d9982937ba09ad634f9ec6443258.jpg",
-                        "http://buzzsharer.com/wp-content/uploads/2016/01/cute-corgi-pup-photo-face-sitting.jpg",
-                        "http://i.huffpost.com/gadgets/slideshows/372170/slide_372170_4315706_free.jpg",
-                        "http://25.media.tumblr.com/tumblr_m90lx5EyhI1rpy15ro1_500.jpg",
-                        "https://s-media-cache-ak0.pinimg.com/originals/37/31/53/3731530dd17857b279c371a750ed72c5.jpg",
-                        "http://i.imgur.com/X5nGIEe.jpg",
-                        "https://i.redd.it/x702hpgs3ypy.jpg",
-                        "http://i.imgur.com/Pc82n6V.jpg",
-                        "http://www.lifewithdogs.tv/wp-content/uploads/2015/05/5.16.15-Cutest-Sleeping-Puppies5.jpg",
-                        "http://2.bp.blogspot.com/-jOjhkW1B38Y/UXOMienUmBI/AAAAAAAAIfY/t_Sts8doy7s/s1600/best+puppies+picture44.jpg",
-                        "http://www.dumpaday.com/wp-content/uploads/2016/11/funny-animals-155.jpg",
-                        "http://i.imgur.com/glffhVL.gif",
-                        "https://assets.rbl.ms/487586/980x.jpg",
-                        "http://www.dumpaday.com/wp-content/uploads/2013/07/good-dogs.jpg",
-                        "https://pbs.twimg.com/media/Ad8Ld1-CAAAsl-X.jpg:large",
-                        "https://thechive.files.wordpress.com/2011/04/chive-thursday-38.jpg?quality=85&strip=info&w=1282",
-                        "https://s-media-cache-ak0.pinimg.com/736x/f9/d6/a5/f9d6a5af3dd3e07fa81cfbcf287f607f.jpg",
-                        "http://www.dogreference.com/wp-content/uploads/2014/01/bigstock-Jack-Russell-terrier-lying-in-17649854-Nosnibor137.jpg",
-                        "https://img.memesuper.com/a7837de80ea6fc5f4bc8650695a8eb5d_via-imgur-dog-memes-2016_1242-920.jpeg",
-                        "https://img.buzzfeed.com/buzzfeed-static/static/2017-02/1/19/campaign_images/buzzfeed-prod-fastlane-01/19-dog-memes-that-will-warm-your-heart-2-6325-1485996002-6_big.jpg",
-                        "https://thoughtcatalog.files.wordpress.com/2016/04/5r7x4qw.jpg?w=800&h=698",
-                        "https://s-media-cache-ak0.pinimg.com/originals/22/b0/f3/22b0f3d19b9000c2a85307e989f978cf.jpg",
-                        "https://s-media-cache-ak0.pinimg.com/originals/22/b0/f3/22b0f3d19b9000c2a85307e989f978cf.jpg",
-                        "https://s-media-cache-ak0.pinimg.com/originals/22/b0/f3/22b0f3d19b9000c2a85307e989f978cf.jpg",
-                        "https://pbs-h2.twimg.com/media/Cct1G6vVAAI9ZjF.jpg",
-                        "https://s-media-cache-ak0.pinimg.com/236x/90/4a/20/904a2097b82eba8c480543f09f43571c.jpg",
-                        "https://pbs-h2.twimg.com/media/Cct1G6vVAAI9ZjF.jpg",
-                        "https://s-media-cache-ak0.pinimg.com/236x/90/4a/20/904a2097b82eba8c480543f09f43571c.jpg"
-                        
-                    ];
-                    
-                    var parallelArray = [
-                        "pic", "pic", "meme", "pic", "pic", "pic", "pic", "pic", "pic", "pic", 
-                        "pic", "pic", "pic", "pic", "pic", "meme", "pic", "pic", "pic", "pic", 
-                        "meme", "pic", "pic", "pic", "pic", "meme", "meme", "pic", "meme", "pic", 
-                        "meme", "pic", "pic", "meme", "meme", "meme", "meme", "meme", "meme"  ///37
-                    ];
-
                     var arrLen = imgURLS.length;
                     var randInd = Math.floor(Math.random()*arrLen);
                     var randURL = imgURLS[randInd];
@@ -150,7 +92,6 @@
     // Close the dropdown menu if the user clicks outside of it
     window.onclick = function(event) {
         if (!event.target.matches('.dropbtn')) {
-
             var dropdowns = document.getElementsByClassName("dropdown-content");
             var i;
             for (i = 0; i < dropdowns.length; i++) {
@@ -182,5 +123,6 @@
     <script></script>
 
     <script></script>
+    <script src="arrays.js"></script> 
 </body>
 </html>
