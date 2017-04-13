@@ -7,122 +7,104 @@
     <h1 class="page-header">Puppies Are Better Than Cats
         <small>(true)</small>
     </h1>
-    <!-- A link tag is what's used to pull in outside resources, otherwise known as assets. Assets include CSS files (stylesheets), font files (i.e. Google Fonts), icon sets. -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Link to Google Fonts goes here -->
 </head>
 <body>
-    <!-- Build your navigation bar here -->
-    <nav>
-    </nav>
-    <!-- Build your content here -->
     <div id="content">
         <a href>link</a> 
         <script src="jquery.js"></script>
-            <script>
-                $( "a" ).click(function( event ) {
-                    event.preventDefault();  //this works
-                    $( this ).hide( "slow" );
-                });
-
-            </script>
-        </div>
-    <ul></ul>
+        <script>
+            $( "a" ).click(function( event ) {
+                event.preventDefault();  //this works
+                $( this ).hide( "slow" );
+            });
+        </script>
+    </div>
     <div>
     	<div class="wrapper">
-        <button class="button">
+            <button class="button">
                     <span class="sr-only">Give me pupper pic now</span>
-                </button>
-            </div>
+            </button>
+        </div>
         <script src="jquery.js"></script>
-            <script>
-                var sort =0;
-                $( "button" ).click(function( event ) {
-                    generatePic();     
-                });
+        <script>
+            var sort =0;
+            $( "button" ).click(function( event ) {
+                generatePic();     
+            });
 
-                function generatePic(){
-                    var arrLen = imgURLS.length;
-                    var randInd = Math.floor(Math.random()*arrLen);
-                    var randURL = imgURLS[randInd];
+            function generatePic(){
+                var arrLen = imgURLS.length;
+                var randInd = Math.floor(Math.random()*arrLen);
+                var randURL = imgURLS[randInd];
                     
-                    if((sort==1 && parallelArray[randInd]== "meme") || (sort==2 && parallelArray[randInd]== "pic")
+                if((sort==1 && parallelArray[randInd]== "meme") || (sort==2 && parallelArray[randInd]== "pic")
                         || sort==0){
-                        var img = document.createElement("img");
-                        img.src = randURL;
-                        img.width = 500;
-                        img.height = 500;
+                    var img = document.createElement("img");
+                    img.src = randURL;
+                    img.width = 500;
+                    img.height = 500;
                     
-                        var docChildren = document.body.childNodes;
-                        if(docChildren.length>2)
-                            document.body.replaceChild(img, docChildren[1]); //if there is a doggo there already, replace it
-                        else
-                            document.body.appendChild(img); //otherwise put a doggo up in here
-                    } else{
-                        generatePic();
-                    }
-                }
-            </script>
-        
-        <p> <span id="img"></span></p></body>
-  <div class="alldropdown">
- <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-
-    <helper1><a class = "memes" href="#">Memes</a></helper1>
-    <helper2><a class = "pics" href="#">Cute pics</a></helper2>
-    <helper3><a class = "both" href="#">Both!!</a></helper3>
-  </div>
-  <script>
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-    $( "helper1" ).click(function( event ) {
-        sort =1;
-    });
-    $( "helper2" ).click(function( event ) {
-        sort =2;
-    });
-    $( "helper3" ).click(function( event ) {
-        sort =0;
-    });
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
+                    var docChildren = document.body.childNodes;
+                    if(docChildren.length>2)
+                        document.body.replaceChild(img, docChildren[1]); //if there is a doggo there already, replace it
+                    else
+                        document.body.appendChild(img); //otherwise put a doggo up in here
+                } else{
+                    generatePic();
                 }
             }
-        }
-    }
+        </script>
+        <p> <span id="img"></span></p></body>
+        <div class="alldropdown">
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <helper1><a class = "memes" href="#">Memes</a></helper1>
+                    <helper2><a class = "pics" href="#">Cute pics</a></helper2>
+                    <helper3><a class = "both" href="#">Both!!</a></helper3>
+                </div>
+                <script>
+                    function myFunction() {
+                        document.getElementById("myDropdown").classList.toggle("show");
+                    }
+                    $( "helper1" ).click(function( event ) {
+                        sort =1;
+                    });
+                    $( "helper2" ).click(function( event ) {
+                        sort =2;
+                    });
+                    $( "helper3" ).click(function( event ) {
+                        sort =0;
+                    });
 
-   
-  </script>
-
-</div>
-</div>
-        
+                    // Close the dropdown menu if the user clicks outside of it
+                    window.onclick = function(event) {
+                        if (!event.target.matches('.dropbtn')) {
+                            var dropdowns = document.getElementsByClassName("dropdown-content");
+                            var i;
+                            for (i = 0; i < dropdowns.length; i++) {
+                                var openDropdown = dropdowns[i];
+                                if (openDropdown.classList.contains('show')) {
+                                    openDropdown.classList.remove('show');
+                                }
+                            }
+                        }
+                    }
+                </script>
+            </div>
+        </div>   
     </div>
-    <!-- jQuery is a Javascript library that seeks to make it easier to manipulate HTML objects (so-called Document Object Model (DOM) object). We'll be using it today as a means of making it easier to type our Javascript code. You are free to intermix ordinary Javascript with jQuery. We'll show you an example of ordinary Javascript vs. jQuery -->
+    <!-- jQuery is a Javascript library that seeks to make it easier to manipulate HTML objects (so-called Document Object Model (DOM) object). We'll be using it today as a means of making it easier to type our Javascript code. You are free to intermix ordinary Javascript with jQuery.-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-
-    <script></script>
-
-    <script></script>
-
-    <script></script>
-
-    <audio id="song"></audio>
-    <script></script>
-
-    <script></script>
     <script src="arrays.js"></script> 
 </body>
 </html>
+
+
+
+
+
+
+
