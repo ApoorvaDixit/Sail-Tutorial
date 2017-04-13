@@ -37,7 +37,15 @@
             </div>
         <script src="jquery.js"></script>
             <script>
+                var sort =0;
                 $( "button" ).click(function( event ) {
+                    generatePic();
+
+                    
+                    
+                });
+
+                function generatePic(){
                     var imgURLS = [
                         "https://i.redd.it/bmyxvz4ifypy.jpg",
                         "http://pngimg.com/uploads/dog/dog_PNG23605.png",
@@ -54,6 +62,7 @@
                         "https://s-media-cache-ak0.pinimg.com/736x/4f/c2/00/4fc200a17d716f989373490e3665f267.jpg",
                         "http://buzzsharer.com/wp-content/uploads/2015/04/puppy-sleep-cute.jpg",
                         "https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web04/2011/10/24/12/enhanced-buzz-32059-1319472148-34.jpg",
+
                         "https://s-media-cache-ak0.pinimg.com/736x/f6/89/d9/f689d9982937ba09ad634f9ec6443258.jpg",
                         "http://buzzsharer.com/wp-content/uploads/2016/01/cute-corgi-pup-photo-face-sitting.jpg",
                         "http://i.huffpost.com/gadgets/slideshows/372170/slide_372170_4315706_free.jpg",
@@ -75,29 +84,127 @@
                         "https://img.memesuper.com/a7837de80ea6fc5f4bc8650695a8eb5d_via-imgur-dog-memes-2016_1242-920.jpeg",
                         "https://img.buzzfeed.com/buzzfeed-static/static/2017-02/1/19/campaign_images/buzzfeed-prod-fastlane-01/19-dog-memes-that-will-warm-your-heart-2-6325-1485996002-6_big.jpg",
                         "https://thoughtcatalog.files.wordpress.com/2016/04/5r7x4qw.jpg?w=800&h=698",
+
                         "https://s-media-cache-ak0.pinimg.com/originals/22/b0/f3/22b0f3d19b9000c2a85307e989f978cf.jpg"
                         
                     ];
                     
+                    var parallelArray = [
+                        "pic", "pic", "meme", "pic", "pic", "pic", "pic", "pic", "pic", "pic", 
+                        "pic", "pic", "pic", "pic", "pic", "meme", "pic", "pic", "pic", "pic", 
+                        "meme", "pic", "pic", "pic", "pic", "meme", "meme", "pic", "meme", "pic", 
+                        "meme", "pic", "pic", "meme", "meme", "meme", "meme"  ///37
+                    ];
+
                     var arrLen = imgURLS.length;
-                    var randURL = imgURLS[Math.floor(Math.random()*arrLen)];
+                    var randInd = Math.floor(Math.random()*arrLen);
+                    var randURL = imgURLS[randInd];
                     
-                    var img = document.createElement("img");
-                    img.src = randURL;
-                    img.width = 500;
-                    img.height = 500;
+                    if((sort==1 && parallelArray[randInd]== "meme") || (sort==2 && parallelArray[randInd]== "pic")
+                        || sort==0){
+                        var img = document.createElement("img");
+                        img.src = randURL;
+                        img.width = 500;
+                        img.height = 500;
                     
-                    var docChildren = document.body.childNodes;
-                    if(docChildren.length>2)
-                        document.body.replaceChild(img, docChildren[1]); //if there is a doggo there already, replace it
-                    else
-                        document.body.appendChild(img); //otherwise put a doggo up in here
-                    
-                });
+                        var docChildren = document.body.childNodes;
+                        if(docChildren.length>2)
+                            document.body.replaceChild(img, docChildren[1]); //if there is a doggo there already, replace it
+                        else
+                            document.body.appendChild(img); //otherwise put a doggo up in here
+                    } else{
+                        generatePic();
+                    }
+                }
             </script>
         
         <p> <span id="img"></span></p></body>
-        
+        <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+
+    <helper1><a class = "memes" href="#">Memes</a></helper1>
+    <helper2><a class = "pics" href="#">Cute pics</a></helper2>
+    <helper3><a class = "both" href="#">Both!!</a></helper3>
+  </div>
+  <script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    $( "helper1" ).click(function( event ) {
+        sort =1;
+    });
+    $( "helper2" ).click(function( event ) {
+        sort =2;
+    });
+    $( "helper3" ).click(function( event ) {
+        sort =0;
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+   
+  </script>
+  <style>
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+  </style>
+</div>
         
     </div>
     <!-- jQuery is a Javascript library that seeks to make it easier to manipulate HTML objects (so-called Document Object Model (DOM) object). We'll be using it today as a means of making it easier to type our Javascript code. You are free to intermix ordinary Javascript with jQuery. We'll show you an example of ordinary Javascript vs. jQuery -->
